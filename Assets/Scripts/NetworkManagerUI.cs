@@ -8,20 +8,25 @@ public class NetworkManagerUI : MonoBehaviour
 {
 
 
-    [SerializeField] private Button serverBtn;
-    [SerializeField] private Button hostBtn;
-    [SerializeField] private Button clientBtn;
+    [SerializeField] private Button ServerButton;
+    [SerializeField] private Button HostButton;
+    [SerializeField] private Button ClientButton;
 
     private void Awake()
     {
-        serverBtn.onClick.AddListener(() => {
+        ServerButton.onClick.AddListener(() => {
+            Debug.Log("Server");
             NetworkManager.Singleton.StartServer();
+            
         });
-        hostBtn.onClick.AddListener(() => {
+        HostButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartHost();
+            Debug.Log("Host");
         });
-        clientBtn.onClick.AddListener(() => {
+        ClientButton.onClick.AddListener(() => {
             NetworkManager.Singleton.StartClient();
+            Debug.Log("Host");
+
         });
     }
 

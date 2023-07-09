@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.limjoshua.igconsole": "https://github.com/JoshuaLim007/InGameConsole.git",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",
     "com.unity.multiplayer.tools": "1.1.0",
