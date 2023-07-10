@@ -41,7 +41,7 @@ public class NetworkPlayer : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> {0} } });
+            TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> {1} } });
             randomNumber.Value = new MyCustomData
             {
                 _int = 10,
