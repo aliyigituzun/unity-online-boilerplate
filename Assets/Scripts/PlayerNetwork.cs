@@ -7,6 +7,7 @@ using UnityEngine;
 public class NetworkPlayer : NetworkBehaviour
 {
     void Update() {
+        if (!IsOwner) return;
         Vector3 moveDir = new Vector3(0, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.W)) moveDir.z += +10f;
