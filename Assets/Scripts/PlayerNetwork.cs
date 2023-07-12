@@ -5,8 +5,10 @@ using Unity.Netcode;
 using UnityEngine;
 
 
-public class NetworkPlayer : NetworkBehaviour
-{
+public class NetworkPlayer : NetworkBehaviour {
+
+    [SerializeField] private Transform spawnedObjectPrefab;
+
 
     private NetworkVariable<MyCustomData> randomNumber = new NetworkVariable<MyCustomData>(
         new MyCustomData
@@ -41,13 +43,17 @@ public class NetworkPlayer : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> {1} } });
+            Debug.Log("BBurada");
+            Instantiate(spawnedObjectPrefab);
+            /*
+            TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> {0} } });
             randomNumber.Value = new MyCustomData
             {
                 _int = 10,
                 _bool = false,
                 message = "Your message"
             };
+            */
         }
         
         Vector3 moveDir = new Vector3(0, 0, 0);
@@ -69,6 +75,11 @@ public class NetworkPlayer : NetworkBehaviour
     [ClientRpc]
     private void TestClientRpc(ClientRpcParams clientRpcParams)
     {
-        Debug.Log("Cliento" + OwnerClientId);
+        Debug.Log("Cliento" + " ; " + OwnerClientId);
     }
+
+
+
+
+
 }
