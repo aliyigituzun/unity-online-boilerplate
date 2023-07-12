@@ -44,7 +44,8 @@ public class NetworkPlayer : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("BBurada");
-            Instantiate(spawnedObjectPrefab);
+            Transform spawnedObjectTransform = Instantiate(spawnedObjectPrefab);
+            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
             /*
             TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> {0} } });
             randomNumber.Value = new MyCustomData
