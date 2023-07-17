@@ -43,6 +43,8 @@ public class NetworkPlayer : NetworkBehaviour {
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            TestServerRpc();
+            /*
             Debug.Log("BBurada");
             Transform spawnedObjectTransform = Instantiate(spawnedObjectPrefab);
             spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
@@ -69,9 +71,11 @@ public class NetworkPlayer : NetworkBehaviour {
     }
 
     [ServerRpc]
-    private void TestServerRpc(ServerRpcParams serverRpcParams)
+    private void TestServerRpc()
     {
-        Debug.Log("Serverito" + OwnerClientId);
+        Transform spawnedObjectTransform = Instantiate(spawnedObjectPrefab);
+        spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
+        
     }
     [ClientRpc]
     private void TestClientRpc(ClientRpcParams clientRpcParams)
