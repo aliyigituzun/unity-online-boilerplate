@@ -474,7 +474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 34.5}
-  m_SizeDelta: {x: 787, y: 69}
+  m_SizeDelta: {x: 789, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804541263
 MonoBehaviour:
@@ -661,7 +661,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 87}
-  m_SizeDelta: {x: 787, y: 35}
+  m_SizeDelta: {x: 789, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &970911820
 MonoBehaviour:
@@ -912,7 +912,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 787, y: 492}
+  m_SizeDelta: {x: 789, y: 493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1038317479
 GameObject:
@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 212.253.14.249
+    Address: 192.168.1.204
     Port: 7777
     ServerListenAddress: 0.0.0.0
   DebugSimulator:
@@ -1649,7 +1649,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 771.26, y: 50}
+  m_SizeDelta: {x: 773.22003, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1766741837
 CanvasRenderer:
@@ -1940,7 +1940,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 74.5}
-  m_SizeDelta: {x: 771.26, y: 426.30002}
+  m_SizeDelta: {x: 773.22003, y: 427.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1889491886
 CanvasRenderer:
@@ -2638,7 +2638,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6103314658662941431, guid: 73b22294e6df2d14eaf072d9d18f49b0, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6103314658662941431, guid: 73b22294e6df2d14eaf072d9d18f49b0, type: 3}
       propertyPath: GlobalObjectIdHash
