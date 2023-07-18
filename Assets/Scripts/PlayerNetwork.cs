@@ -10,12 +10,6 @@ public class NetworkPlayer : NetworkBehaviour {
     [SerializeField] private Transform spawnedObjectPrefab;
 
 
-    private NetworkVariable<MyCustomData> randomNumber = new NetworkVariable<MyCustomData>(
-        new MyCustomData
-        {
-            _int = 56,
-            _bool = true
-        }, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     public struct MyCustomData : INetworkSerializable
     {
@@ -29,13 +23,7 @@ public class NetworkPlayer : NetworkBehaviour {
             serializer.SerializeValue(ref _bool);
         }
     }
-    public override void OnNetworkSpawn()
-    {
-        randomNumber.OnValueChanged += (MyCustomData previousValue, MyCustomData newValue) =>
-        {
-            Debug.Log(OwnerClientId + " ; " + newValue._int + "; " + newValue._bool + " ; " + newValue.message);
-        };
-    }
+    
 
     void Update() {
 
