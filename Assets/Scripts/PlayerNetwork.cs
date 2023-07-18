@@ -9,8 +9,6 @@ public class NetworkPlayer : NetworkBehaviour {
 
     [SerializeField] private Transform spawnedObjectPrefab;
 
-
-
     public struct MyCustomData : INetworkSerializable
     {
         public int _int;
@@ -32,30 +30,9 @@ public class NetworkPlayer : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.T))
         {
             TestServerRpc();
-            /*
-            Debug.Log("BBurada");
-            Transform spawnedObjectTransform = Instantiate(spawnedObjectPrefab);
-            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
-            /*
-            TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> {0} } });
-            randomNumber.Value = new MyCustomData
-            {
-                _int = 10,
-                _bool = false,
-                message = "Your message"
-            };
-            */
         }
         
-        Vector3 moveDir = new Vector3(0, 0, 0);
-
-        if (Input.GetKeyDown(KeyCode.W)) moveDir.z += +10f;
-        if (Input.GetKeyDown(KeyCode.S)) moveDir.z += -10f;
-        if (Input.GetKeyDown(KeyCode.A)) moveDir.x += -10f;
-        if (Input.GetKeyDown(KeyCode.D)) moveDir.x += +10f;
-
-        float moveSpeed = 30f;
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
+        
     }
 
     [ServerRpc]
