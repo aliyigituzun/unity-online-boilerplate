@@ -7,10 +7,9 @@ public class RotationCamera : MonoBehaviour
 {
 
     private float Sensitivity = 500f;
-
     public Transform P1Body;
-
     float xRotation = 0f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +27,15 @@ public class RotationCamera : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         P1Body.Rotate(Vector3.up * mouseX);
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
 
     }

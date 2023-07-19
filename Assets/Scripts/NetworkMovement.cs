@@ -31,8 +31,6 @@ public class NetworkMovement : NetworkBehaviour
         movement = new Vector3(horizontal, 0f, vertical);
         body.AddForce(movement * acceleration, ForceMode.Acceleration);
         body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
-
-        //body.velocity = (transform.forward * vertical) * speed * Time.fixedDeltaTime;
         transform.Rotate((transform.up * horizontal) * rotationSpeed * Time.fixedDeltaTime);
 
         counter++; //temporary
