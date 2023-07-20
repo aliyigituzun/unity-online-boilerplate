@@ -9,9 +9,9 @@ public class NetworkManagerUI : MonoBehaviour
 {
 
 
-    [SerializeField] private Button ServerButton;
-    [SerializeField] private Button HostButton;
-    [SerializeField] private Button ClientButton;
+    [SerializeField] private GameObject ServerButton;
+    [SerializeField] private GameObject HostButton;
+    [SerializeField] private GameObject ClientButton;
     [SerializeField] private GameObject IpField;
     [SerializeField] private GameObject NetworkManagere;
 
@@ -24,11 +24,24 @@ public class NetworkManagerUI : MonoBehaviour
         
     }
 
+    public void HideButtons(){
+        IpField.SetActive(false);
+        ClientButton.SetActive(false);
+        HostButton.SetActive(false);  
+        ServerButton.SetActive(false);
+    }
+
+    public void ShowButtons(){
+        IpField.SetActive(true);
+        ClientButton.SetActive(true);
+        HostButton.SetActive(true);  
+        ServerButton.SetActive(true);
+    }
 
     public void Disconnect(){
         NetworkManager.Singleton.Shutdown();
         Debug.Log("Disconnect");
-        IpField.SetActive(true);
+        ShowButtons();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -37,21 +50,21 @@ public class NetworkManagerUI : MonoBehaviour
     public void StartClienting(){
         NetworkManager.Singleton.StartClient();
         Debug.Log("Client");
-        IpField.SetActive(false);
+        HideButtons();
     }
 
 
     public void StartHosting(){
         NetworkManager.Singleton.StartHost();
         Debug.Log("Host");
-        IpField.SetActive(false);
+        HideButtons();
     }
 
 
     public void StartServing(){
         NetworkManager.Singleton.StartServer();
         Debug.Log("Server");
-        IpField.SetActive(false);
+        HideButtons();
     }
 
 
