@@ -5,43 +5,43 @@ using Unity.Netcode;
 
 public class NetworkMovement : NetworkBehaviour
 {
-    private Rigidbody body;
-    public float speed;
-    public float rotationSpeed;
-    public float acceleration;
-    public float maxSpeed;
-    private float vertical;
-    private float horizontal;
-    private Vector3 movement;
+    public float moveSpeed;
 
-    private int counter; //temporary
+    public Transform orientation;
 
+    Rigidbody body;
 
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
     void Start()
     {
         body = GetComponent<Rigidbody>();
-        counter = 0;
+        body.freezeRotation = true;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
-        movement = new Vector3(horizontal, 0f, vertical);
-        body.AddForce(movement * acceleration, ForceMode.Acceleration);
-        body.velocity = Vector3.ClampMagnitude(body.velocity, maxSpeed);
+        MovePlayer();
+    }
 
-        //body.velocity = (transform.forward * vertical) * speed * Time.fixedDeltaTime;
-        transform.Rotate((transform.up * horizontal) * rotationSpeed * Time.fixedDeltaTime);
+    private void Update()
+    {
+        MyInput();
+    }
 
-        counter++; //temporary
-        while(counter > 100)
-        {
-            Debug.Log(body.velocity);
-            counter = 0;
-        }
-        
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+    private void MovePlayer()
+    {
+        Debug.Log(moveDirection);
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        body.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
     }
 }
