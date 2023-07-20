@@ -20,6 +20,12 @@ public class PlayerCam : NetworkBehaviour {
         Cursor.visible = false;
     }
 
+    void Disconnect()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Update()
     {
         float mouseX = Input.GetAxisRaw("Mouse X");
