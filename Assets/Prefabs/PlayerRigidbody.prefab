@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2650978153513524487}
   - component: {fileID: 4134963176175985749}
+  - component: {fileID: 1324602352663125897}
   m_Layer: 0
   m_Name: CameraPos
   m_TagString: Untagged
@@ -78,47 +79,14 @@ MonoBehaviour:
   sensX: 300
   sensY: 300
   cameraPosition: {fileID: 1127575627669749013}
-  urcamera: {fileID: 1366697675370260635}
---- !u!1 &4235408900624496336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3929076225147985849}
-  - component: {fileID: 1366697675370260635}
-  - component: {fileID: 8233716877404153194}
-  m_Layer: 0
-  m_Name: cameras
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3929076225147985849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235408900624496336}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0.23}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1127575627669749013}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1366697675370260635
+  urcamera: {fileID: 1324602352663125897}
+--- !u!20 &1324602352663125897
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235408900624496336}
+  m_GameObject: {fileID: 2797352000840240798}
   m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
@@ -163,14 +131,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8233716877404153194
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235408900624496336}
-  m_Enabled: 0
 --- !u!1 &8673951951692464870
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +169,6 @@ Transform:
   m_Children:
   - {fileID: 2078940486581122977}
   - {fileID: 2650978153513524487}
-  - {fileID: 3929076225147985849}
   - {fileID: 1714379515754381013}
   m_Father: {fileID: 0}
   m_RootOrder: 0
