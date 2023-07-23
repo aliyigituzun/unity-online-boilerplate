@@ -22,6 +22,8 @@ public class PlayerCam : NetworkBehaviour {
 
     private void Update()
     {
+        if (!IsOwner) return;
+        
         float mouseX = Input.GetAxisRaw("Mouse X");
         float mouseY = Input.GetAxisRaw("Mouse Y");
 
