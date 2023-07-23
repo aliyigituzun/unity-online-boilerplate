@@ -38,7 +38,6 @@ public class NetworkMovement : NetworkBehaviour
     }
     private void MovePlayer()
     {
-        Debug.Log(moveDirection);
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         body.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);

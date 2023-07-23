@@ -597,18 +597,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NetworkManagerUI, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &289541709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,7 +2154,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1603603409}
-    PlayerPrefab: {fileID: 8516883928128742413, guid: 113605d1d0aa09d44875fb231a7c74ea, type: 3}
+    PlayerPrefab: {fileID: 5977380111206855564, guid: 113605d1d0aa09d44875fb231a7c74ea, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: c44bf4687fdb21544930ed539f37781b, type: 2}
