@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode.Transports.UTP;
 
-public class NetworkManagerUI : MonoBehaviour
+public class NetworkManagerUI : NetworkBehaviour
 {
 
 
@@ -13,13 +13,32 @@ public class NetworkManagerUI : MonoBehaviour
     [SerializeField] private GameObject HostButton;
     [SerializeField] private GameObject ClientButton;
     [SerializeField] private GameObject IpField;
-    [SerializeField] private GameObject NetworkManagere;
+    [SerializeField] private GameObject ThisNetworkManager;
+    [SerializeField] private GameObject CharacterSelectorButton;
+    [SerializeField] private GameObject CharacterSelectorPanel;
+    [SerializeField] private GameObject Character1Button;
+    [SerializeField] private GameObject Character2Button;
 
+    [SerializeField] private GameObject PlayerPrefab;
+
+    [SerializeField] private Renderer Character1;
+    [SerializeField] private Renderer Character2;
+
+    int CharacterSelection = 0;
+
+    private void Start()
+    {
+        CharacterSelectorPanel.SetActive(false);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Disconnect();
+        }
+        if (Input.GetKeyDown(KeyCode.G)) 
+        { 
+            
         }
         
     }
@@ -47,21 +66,21 @@ public class NetworkManagerUI : MonoBehaviour
     }
 
 
-    public void StartClienting(){
+    public void ClientStart(){
         NetworkManager.Singleton.StartClient();
         Debug.Log("Client");
         HideButtons();
     }
 
 
-    public void StartHosting(){
+    public void HostStart(){
         NetworkManager.Singleton.StartHost();
         Debug.Log("Host");
         HideButtons();
     }
 
 
-    public void StartServing(){
+    public void ServerStart(){
         NetworkManager.Singleton.StartServer();
         Debug.Log("Server");
         HideButtons();
@@ -69,9 +88,33 @@ public class NetworkManagerUI : MonoBehaviour
 
 
     public void Ip_Changed(string _ipe){
-        UnityTransport thisisimportant = NetworkManagere.GetComponent<UnityTransport>();
+        UnityTransport thisisimportant = ThisNetworkManager.GetComponent<UnityTransport>();
         thisisimportant.ConnectionData.Address = _ipe;
     }
+
+    public void OpenCharacterMenu()
+    {
+        CharacterSelectorPanel.SetActive(true);
+    }
+    public void CloseCharacterMenu()
+    {
+        CharacterSelectorPanel.SetActive(false);
+    }
+
+    public void SelectCharacter1()
+    {
+        Renderer renderer = PlayerPrefab.GetComponent<Renderer>();
+    }
+
+    public void SelectCharacter2()
+    {
+
+    }
+
+
+
+
+
 
 
 }
