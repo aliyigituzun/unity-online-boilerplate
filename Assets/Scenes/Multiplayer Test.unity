@@ -1639,12 +1639,11 @@ MonoBehaviour:
   ClientButton: {fileID: 186729018}
   IpField: {fileID: 214341270}
   ThisNetworkManager: {fileID: 1603603408}
-  CharacterSelectorButton: {fileID: 36389133}
+  CharacterSelectorOpenButton: {fileID: 36389133}
   CharacterSelectorPanel: {fileID: 1472721745}
   Character1Button: {fileID: 1730539574}
   Character2Button: {fileID: 2114164731}
-  gentleman: {fileID: 8698275874895791214, guid: 805996ca3cb21fc43876eb345a8179d7, type: 3}
-  gnome: {fileID: 8673951951692464870, guid: 113605d1d0aa09d44875fb231a7c74ea, type: 3}
+  Player: {fileID: 1226791173574811952, guid: 805996ca3cb21fc43876eb345a8179d7, type: 3}
 --- !u!114 &1074557359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2100,7 +2099,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1603603409}
-    PlayerPrefab: {fileID: 8673951951692464870, guid: 113605d1d0aa09d44875fb231a7c74ea, type: 3}
+    PlayerPrefab: {fileID: 1226791173574811952, guid: 805996ca3cb21fc43876eb345a8179d7, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: c44bf4687fdb21544930ed539f37781b, type: 2}
@@ -2112,7 +2111,7 @@ MonoBehaviour:
     TimeResyncInterval: 30
     EnsureNetworkVariableLengthSafety: 0
     EnableSceneManagement: 1
-    ForceSamePrefabs: 1
+    ForceSamePrefabs: 0
     RecycleNetworkIds: 1
     NetworkIdRecycleDelay: 120
     RpcHashSize: 0
