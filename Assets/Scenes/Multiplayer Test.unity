@@ -1587,6 +1587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074557357}
   - component: {fileID: 1074557358}
+  - component: {fileID: 1074557359}
   m_Layer: 5
   m_Name: NetworkManagerUI
   m_TagString: Untagged
@@ -1642,9 +1643,28 @@ MonoBehaviour:
   CharacterSelectorPanel: {fileID: 1472721745}
   Character1Button: {fileID: 1730539574}
   Character2Button: {fileID: 2114164731}
-  PlayerPrefab: {fileID: 8673951951692464870, guid: 113605d1d0aa09d44875fb231a7c74ea, type: 3}
-  Character1: {fileID: 0}
-  Character2: {fileID: 0}
+  gentleman: {fileID: 8698275874895791214, guid: 805996ca3cb21fc43876eb345a8179d7, type: 3}
+  gnome: {fileID: 8673951951692464870, guid: 113605d1d0aa09d44875fb231a7c74ea, type: 3}
+--- !u!114 &1074557359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074557356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2569413631
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1280439951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,9 +2252,9 @@ RectTransform:
   m_Father: {fileID: 1472721746}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 150, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730539576
@@ -2280,7 +2300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1730539577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074557358}
+        m_TargetAssemblyTypeName: NetworkManagerUI, Assembly-CSharp
+        m_MethodName: SelectCharacter1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1730539577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2852,9 +2884,9 @@ RectTransform:
   m_Father: {fileID: 1472721746}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -150, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114164733
@@ -2900,7 +2932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2114164734}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074557358}
+        m_TargetAssemblyTypeName: NetworkManagerUI, Assembly-CSharp
+        m_MethodName: SelectCharacter2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &2114164734
 MonoBehaviour:
   m_ObjectHideFlags: 0

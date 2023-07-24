@@ -19,26 +19,22 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] private GameObject Character1Button;
     [SerializeField] private GameObject Character2Button;
 
-    [SerializeField] private GameObject PlayerPrefab;
+    [SerializeField] private GameObject gentleman;
+    [SerializeField] private GameObject gnome;
 
-    [SerializeField] private Renderer Character1;
-    [SerializeField] private Renderer Character2;
-
-    int CharacterSelection = 0;
+    int CharacterSelection = 0; // 0 = gnome, 1 = gentleman
 
     private void Start()
     {
         CharacterSelectorPanel.SetActive(false);
+
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Disconnect();
-        }
-        if (Input.GetKeyDown(KeyCode.G)) 
-        { 
-            
         }
         
     }
@@ -67,6 +63,20 @@ public class NetworkManagerUI : NetworkBehaviour
 
 
     public void ClientStart(){
+
+        NetworkManager NetworkManagerScript = ThisNetworkManager.GetComponent<NetworkManager>();
+        if (CharacterSelection == 0)
+        {
+            Debug.Log("gnome");
+            NetworkManagerScript.NetworkConfig.PlayerPrefab = gnome;
+
+        }
+        if (CharacterSelection == 1)
+        {
+            Debug.Log("gentleman");
+            NetworkManagerScript.NetworkConfig.PlayerPrefab = gentleman;
+        }
+
         NetworkManager.Singleton.StartClient();
         Debug.Log("Client");
         HideButtons();
@@ -74,6 +84,20 @@ public class NetworkManagerUI : NetworkBehaviour
 
 
     public void HostStart(){
+
+        NetworkManager NetworkManagerScript = ThisNetworkManager.GetComponent<NetworkManager>();
+        if (CharacterSelection == 0)
+        {
+            Debug.Log("gnome");
+            NetworkManagerScript.NetworkConfig.PlayerPrefab = gnome;
+
+        }
+        if (CharacterSelection == 1)
+        {
+            Debug.Log("gentleman");
+            NetworkManagerScript.NetworkConfig.PlayerPrefab = gentleman;
+        }
+
         NetworkManager.Singleton.StartHost();
         Debug.Log("Host");
         HideButtons();
@@ -103,11 +127,14 @@ public class NetworkManagerUI : NetworkBehaviour
 
     public void SelectCharacter1()
     {
-        Renderer renderer = PlayerPrefab.GetComponent<Renderer>();
+        Debug.Log("0");
+        CharacterSelection = 0;
     }
 
     public void SelectCharacter2()
     {
+        Debug.Log("1");
+        CharacterSelection = 1;
 
     }
 
