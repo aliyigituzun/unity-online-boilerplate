@@ -19,8 +19,11 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] private GameObject Character1Button;
     [SerializeField] private GameObject Character2Button;
 
-    [SerializeField] private GameObject Player;
-    
+    [SerializeField] private GameObject Character1;
+    [SerializeField] private GameObject Character2;
+
+    int CharacterSelected;
+
     private void Start()
     {
         CharacterSelectorPanel.SetActive(false);
@@ -32,8 +35,24 @@ public class NetworkManagerUI : NetworkBehaviour
         {
             Disconnect();
         }
-        
     }
+    [ServerRpc(RequireOwnership = false)]
+    private void SpawnPlayerServerRpc(ulong clientId)
+    {
+        GameObject newPlayer;
+        NetworkObject netObj;
+        if(CharacterSelected == 0)
+        {
+            newPlayer = (GameObject)Instantiate(Character1);
+        }
+        else
+        {
+            newPlayer = (GameObject)Instantiate(Character2);
+        }
+        netObj = newPlayer.GetComponent<NetworkObject>();
+        netObj.SpawnAsPlayerObject(clientId, true);
+    }
+
 
     public void HideButtons(){
         IpField.SetActive(false);
@@ -63,7 +82,6 @@ public class NetworkManagerUI : NetworkBehaviour
 
 
     public void ClientStart(){
-
         NetworkManager.Singleton.StartClient();
         Debug.Log("Client");
         HideButtons();
@@ -71,10 +89,15 @@ public class NetworkManagerUI : NetworkBehaviour
 
 
     public void HostStart(){
-
         NetworkManager.Singleton.StartHost();
         Debug.Log("Host");
         HideButtons();
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        Debug.Log("Eh");
+        SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId);
     }
 
 
@@ -101,23 +124,14 @@ public class NetworkManagerUI : NetworkBehaviour
 
     public void SelectCharacter1()
     {
-        Debug.Log("0");
-        Player.transform.GetChild(1).gameObject.SetActive(false);
-        Player.transform.GetChild(0).gameObject.SetActive(true);
+        Debug.Log("00");
+        CharacterSelected = 0;
     }
-
     public void SelectCharacter2()
     {
         Debug.Log("1");
-        Player.transform.GetChild(0).gameObject.SetActive(false);
-        Player.transform.GetChild(1).gameObject.SetActive(true);
-
+        CharacterSelected = 1;
     }
-
-
-
-
-
 
 
 }
