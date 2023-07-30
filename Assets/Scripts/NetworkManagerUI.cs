@@ -35,22 +35,30 @@ public class NetworkManagerUI : NetworkBehaviour
         {
             Disconnect();
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("heyo");
+            CharacterSelected = 1;
+            Debug.Log(CharacterSelected + "ahanda bu");
+        }
     }
     [ServerRpc(RequireOwnership = false)]
     private void SpawnPlayerServerRpc(ulong clientId)
     {
-        GameObject newPlayer;
-        NetworkObject netObj;
-        if(CharacterSelected == 0)
-        {
-            newPlayer = (GameObject)Instantiate(Character1);
-        }
-        else
-        {
-            newPlayer = (GameObject)Instantiate(Character2);
-        }
-        netObj = newPlayer.GetComponent<NetworkObject>();
-        netObj.SpawnAsPlayerObject(clientId, true);
+            GameObject newPlayer;
+            NetworkObject netObj;
+            if (CharacterSelected == 0)
+            {
+                Debug.Log("1Char");
+                newPlayer = (GameObject)Instantiate(Character1);
+            }
+            else
+            {
+                Debug.Log("2Char");
+                newPlayer = (GameObject)Instantiate(Character2);
+            }
+            netObj = newPlayer.GetComponent<NetworkObject>();
+            netObj.SpawnAsPlayerObject(clientId, true);
     }
 
 
@@ -96,8 +104,9 @@ public class NetworkManagerUI : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        Debug.Log("Eh");
+        Debug.Log("OnNetworkSpawn Triggered");
         SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId);
+        
     }
 
 
@@ -124,12 +133,12 @@ public class NetworkManagerUI : NetworkBehaviour
 
     public void SelectCharacter1()
     {
-        Debug.Log("00");
+        Debug.Log("1 Selected");
         CharacterSelected = 0;
     }
     public void SelectCharacter2()
     {
-        Debug.Log("1");
+        Debug.Log("2 Selected");
         CharacterSelected = 1;
     }
 
